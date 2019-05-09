@@ -6,12 +6,12 @@ $fnCsv = fopen('/tmp/file.csv', 'w');
 
 while(! feof($fnUsr))  {
     $line = fgets($fnUsr);
-
+    //Only process with line that in format: "1.   	 FDS Ticker Symbol            	DISPLAY   	DISPLAY   	P_SYMBOL"
     if (!preg_match("/^\d+\..+/", $line)){
     	continue;
     }
     	
-    //1. Replace 02 tab by one
+    //1. Replace 02 tabs by one
     $line = preg_replace("/\t{2}/", "\t", $line);
 
     //2. read csv text based on tab can 
